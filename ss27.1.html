@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      do {
+        let num1 = +prompt("Nhập vào số thứ nhất");
+        let num2 = +prompt("Nhập vào số thứ hai");
+        console.log("1.Cộng hai số");
+        console.log("2.Trừ hai số");
+        console.log("3.Nhân hai số");
+        console.log("4.Chia hai số");
+        console.log("5.Thoát");
+        choice = +prompt("Lựa chọn của bạn ");
+        switch (choice) {
+          case 1:
+            let total = num1 + num2;
+            console.log(total);
+            break;
+
+          case 2:
+            let effect = num1 - num2;
+            console.log(effect);
+            break;
+          case 3:
+            let product = num1 * num2;
+            console.log(product);
+
+            break;
+          case 4:
+            if ((num2 = 0)) {
+              console.log(` không hợp lệ `);
+            } else {
+              let divide = num1 / num2;
+              console.log(divide);
+            }
+
+            break;
+          case 5:
+            break;
+        }
+      } while (choice !== 5);
+    </script>
+  </body>
+</html>
