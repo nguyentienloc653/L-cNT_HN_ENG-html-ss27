@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let studentList = [];
+
+      function add() {
+        let n = +prompt(`Nhập vào số lượng sinh viên`);
+        if (n < 0) {
+          console.log(`Nhập vào số lượng không hợp lệ `);
+        } else if (n === 0) {
+          console.log(` Mảng không có phần tử `);
+        } else {
+          for (let i = 0; i < n; i++) {
+            let value = prompt(`Mời bạn nhập vào tên sinh viên thứ ${i + 1} `);
+            studentList.push(value);
+          }
+        }
+      }
+
+      function search() {
+        let searchName = prompt(`Nhập tên bạn cần tìm `);
+        let foundStudent = studentList.filter((student) =>
+          student.includes(searchName)
+        );
+
+        if (foundStudent.length > 0) {
+          console.log("Sinh viên tìm thấy:", foundStudent);
+        } else {
+          console.log("Không tìm thấy sinh viên nào.");
+        }
+      }
+
+      function deleteStudent() {
+        let input = prompt(`Nhập tên muốn xóa`).trim().toLowerCase();
+
+        if (!input) {
+          console.log("Tên không hợp lệ!");
+          return;
+        }
+
+        let initialLength = studentList.length;
+
+        studentList = studentList.filter(
+          (student) => !student.toLowerCase().includes(input)
+        );
+
+        if (studentList.length < initialLength) {
+          console.log(`Đã xóa tất cả sinh viên có chứa tên: "${input}"`);
+        } else {
+          console.log("Không tìm thấy sinh viên!");
+        }
+      }
+      do {
+        console.log("1.Nhập danh sách sinh viên");
+        console.log("2.Hiển thị danh sách sinh viên");
+        console.log("3.Tìm sinh viên theo tên");
+        console.log("4.Xóa sinh viên khỏi danh sách");
+        console.log("5.Thoát");
+        choice = +prompt("Lựa chọn của bạn ");
+        switch (choice) {
+          case 1:
+            add();
+            break;
+
+          case 2:
+            if (studentList.length === 0) {
+              console.log(`không có sinh viên nào`);
+            } else {
+              console.log(studentList);
+            }
+
+            break;
+          case 3:
+            search();
+            break;
+          case 4:
+            deleteStudent();
+            break;
+          case 5:
+            break;
+        }
+      } while (choice !== 5);
+    </script>
+  </body>
+</html>
