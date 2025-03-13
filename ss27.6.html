@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let numbers = [];
+      let n = +prompt("Nhập vào độ dài mảng: ");
+      for (let i = 0; i < n; i++) {
+        numbers[i] = Number(prompt(`Nhập vào phần tử thứ ${i + 1}`));
+      }
+
+      function isArithmeticSequence(arr) {
+        if (!Array.isArray(arr) || arr.length < 2)
+          return "Dữ liệu không hợp lệ";
+
+        let commonDifference = arr[1] - arr[0];
+
+        return arr.every(
+          (num, i) => i === 0 || num - arr[i - 1] === commonDifference
+        );
+      }
+
+      console.log(isArithmeticSequence(numbers));
+    </script>
+  </body>
+</html>
